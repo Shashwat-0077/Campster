@@ -1,0 +1,74 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container w-50">
+  <h1 class="text-center">New Campground</h1>
+  <form
+    action="/new-camp"
+    method="POST"
+    class="text-start needs-validation"
+    enctype="multipart/form-data"
+    novalidate
+  >
+    <label for="title" class="mt-1">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="camp[title]"
+      required
+    />
+
+    <label for="place" class="mt-1">Place</label>
+    <input
+      type="text"
+      class="form-control"
+      id="place"
+      name="camp[place]"
+      required
+    />
+
+    <label for="state" class="mt-1">State</label>
+    <input
+      type="text"
+      class="form-control"
+      id="state"
+      name="camp[state]"
+      required
+    />
+
+    <label for="images" class="mt-1">Image</label>
+    <input
+      type="file"
+      name="images"
+      id="images"
+      class="form-control"
+      multiple
+      required
+    />
+
+    <label for="price" class="mt-1">Price</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">&#8377;</span>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Amount (to the nearest dollar)"
+        placeholder="0.00"
+        name="camp[price]"
+        required
+      />
+    </div>
+
+    <label for="description" class="mt-1">Description</label>
+    <textarea
+      class="form-control"
+      id="description"
+      aria-label="With textarea"
+      name="camp[description]"
+      required
+    ></textarea>
+
+    <button class="btn btn-success mt-3">Add campground</button>
+  </form>
+  <div class="mt-3"><a href="/campground">All Campground</a></div>
+</div>
