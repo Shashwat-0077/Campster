@@ -22,7 +22,9 @@ const user_auth = require("./routers/users_auth");
 
 //db
 mongoose
-    .connect("mongodb://localhost:27017/campster")
+    .connect(
+        "mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.0"
+    )
     .then(() => {
         console.log("DB is connected");
     })
