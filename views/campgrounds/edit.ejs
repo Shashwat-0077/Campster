@@ -1,0 +1,658 @@
+<% layout('layouts/boilerplate')%>
+
+<!-- Hero Section -->
+<div class="relative overflow-hidden mb-12">
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-accent-amber/10 to-accent-orange/10 rounded-3xl transform -skew-y-1 shadow-soft"
+    ></div>
+    <div class="relative z-10 text-center py-16 px-8">
+        <div class="animate-fade-in">
+            <h1
+                class="text-5xl font-bold bg-gradient-to-r from-accent-orange to-accent-amber bg-clip-text text-transparent mb-4"
+            >
+                Edit Campground
+            </h1>
+            <p
+                class="text-xl text-forest-600 max-w-2xl mx-auto leading-relaxed"
+            >
+                Update your campground details and keep your listing fresh for
+                fellow adventurers
+            </p>
+            <div
+                class="mt-4 inline-flex items-center px-4 py-2 bg-accent-orange/10 rounded-full text-accent-orange font-medium"
+            >
+                <svg
+                    class="w-4 h-4 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                    ></path>
+                </svg>
+                Editing: <%= campground.title %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Form Container -->
+<div class="max-w-4xl mx-auto">
+    <div
+        class="bg-white rounded-3xl shadow-soft border border-forest-200/50 overflow-hidden animate-slide-up"
+    >
+        <!-- Form Header -->
+        <div
+            class="bg-gradient-to-r from-accent-orange to-accent-amber px-8 py-6"
+        >
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center"
+                    >
+                        <svg
+                            class="w-5 h-5 text-white"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-white">
+                        Update Campground Details
+                    </h2>
+                </div>
+                <div class="text-white/80 text-sm">
+                    ID: <%= campground._id %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Content -->
+        <div class="p-8">
+            <form
+                action="/campgrounds/<%=campground._id%>?_method=PUT"
+                method="POST"
+                novalidate
+                class="validated-form space-y-8"
+                enctype="multipart/form-data"
+            >
+                <!-- Title Field -->
+                <div class="group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                        for="title"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.997 1.997 0 013 12V7a4 4 0 014-4z"
+                            ></path>
+                        </svg>
+                        <span>Campground Title</span>
+                    </label>
+                    <input
+                        class="w-full px-4 py-3 border-2 border-forest-200 rounded-xl focus:border-accent-orange focus:ring-4 focus:ring-accent-orange/20 transition-all duration-200 text-forest-800 placeholder-forest-400"
+                        type="text"
+                        id="title"
+                        name="campground[title]"
+                        value="<%=campground.title %>"
+                        placeholder="Enter a memorable name for your campground"
+                        required
+                    />
+                    <div
+                        class="mt-2 text-sm text-accent-orange opacity-0 group-focus-within:opacity-100 transition-opacity"
+                    >
+                        ✓ Keep it catchy and descriptive
+                    </div>
+                </div>
+
+                <!-- Location Field -->
+                <div class="group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                        for="location"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            ></path>
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            ></path>
+                        </svg>
+                        <span>Location</span>
+                    </label>
+                    <input
+                        class="w-full px-4 py-3 border-2 border-forest-200 rounded-xl focus:border-accent-orange focus:ring-4 focus:ring-accent-orange/20 transition-all duration-200 text-forest-800 placeholder-forest-400"
+                        type="text"
+                        id="location"
+                        name="campground[location]"
+                        value="<%=campground.location %>"
+                        placeholder="City, State or specific address"
+                        required
+                    />
+                    <div
+                        class="mt-2 text-sm text-accent-orange opacity-0 group-focus-within:opacity-100 transition-opacity"
+                    >
+                        ✓ Update if the location details have changed
+                    </div>
+                </div>
+
+                <!-- Price Field -->
+                <div class="group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                        for="price"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                            ></path>
+                        </svg>
+                        <span>Price per Night</span>
+                    </label>
+                    <div class="relative">
+                        <div
+                            class="absolute inset-y-0 left-0 flex items-center pl-4"
+                        >
+                            <span class="text-forest-500 font-semibold">$</span>
+                        </div>
+                        <input
+                            type="text"
+                            class="w-full pl-8 pr-4 py-3 border-2 border-forest-200 rounded-xl focus:border-accent-orange focus:ring-4 focus:ring-accent-orange/20 transition-all duration-200 text-forest-800 placeholder-forest-400"
+                            id="price"
+                            placeholder="25.00"
+                            name="campground[price]"
+                            value="<%=campground.price %>"
+                            required
+                        />
+                    </div>
+                    <div
+                        class="mt-2 text-sm text-accent-orange opacity-0 group-focus-within:opacity-100 transition-opacity"
+                    >
+                        ✓ Adjust pricing based on seasonal demand
+                    </div>
+                </div>
+
+                <!-- Description Field -->
+                <div class="group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                        for="description"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h7"
+                            ></path>
+                        </svg>
+                        <span>Description</span>
+                    </label>
+                    <textarea
+                        class="w-full px-4 py-3 border-2 border-forest-200 rounded-xl focus:border-accent-orange focus:ring-4 focus:ring-accent-orange/20 transition-all duration-200 text-forest-800 placeholder-forest-400 min-h-[120px] resize-y"
+                        id="description"
+                        name="campground[description]"
+                        placeholder="Describe the campground's features, amenities, nearby attractions, and what makes it special..."
+                        required
+                    >
+<%= campground.description%></textarea
+                    >
+                    <div
+                        class="mt-2 text-sm text-accent-orange opacity-0 group-focus-within:opacity-100 transition-opacity"
+                    >
+                        ✓ Add any new features or seasonal updates
+                    </div>
+                </div>
+
+                <!-- Current Images Section -->
+                <% if(campground.images && campground.images.length > 0) { %>
+                <div class="space-y-4">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        <span>Current Images</span>
+                        <span
+                            class="text-xs bg-forest-100 text-forest-600 px-2 py-1 rounded-full"
+                        >
+                            <%= campground.images.length %> image<%=
+                            campground.images.length !== 1 ? 's' : '' %>
+                        </span>
+                    </label>
+
+                    <div
+                        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+                    >
+                        <% campground.images.forEach(function(img, i) { %>
+                        <div class="relative group">
+                            <div
+                                class="aspect-square rounded-xl overflow-hidden bg-forest-100 shadow-soft"
+                            >
+                                <img
+                                    src="<%=img.thumbnail %>"
+                                    class="w-full h-full object-cover transition-transform duration-200 group-hover:scale-105"
+                                    alt="Campground image <%= i + 1 %>"
+                                />
+                            </div>
+                            <div class="absolute top-2 right-2">
+                                <div
+                                    class="bg-white/90 backdrop-blur-sm rounded-lg p-2 shadow-soft"
+                                >
+                                    <input
+                                        type="checkbox"
+                                        id="image-<%=i%>"
+                                        name="deleteImages[]"
+                                        value="<%=img.filename%>"
+                                        class="w-4 h-4 text-red-600 border-2 border-forest-300 rounded focus:ring-2 focus:ring-red-500 transition-colors"
+                                    />
+                                    <label
+                                        for="image-<%=i%>"
+                                        class="ml-2 text-xs font-medium text-forest-700 cursor-pointer"
+                                    >
+                                        Delete
+                                    </label>
+                                </div>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3 rounded-b-xl"
+                            >
+                                <p class="text-white text-xs font-medium">
+                                    Image <%= i + 1 %>
+                                </p>
+                            </div>
+                        </div>
+                        <% }) %>
+                    </div>
+
+                    <div class="bg-red-50 border border-red-200 rounded-xl p-4">
+                        <div class="flex items-start space-x-3">
+                            <svg
+                                class="w-5 h-5 text-red-500 mt-0.5 flex-shrink-0"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.728-.833-2.498 0L4.316 16.5c-.77.833.192 2.5 1.732 2.5z"
+                                ></path>
+                            </svg>
+                            <div>
+                                <h4 class="text-red-800 font-medium text-sm">
+                                    Image Deletion Notice
+                                </h4>
+                                <p class="text-red-700 text-sm mt-1">
+                                    Check the boxes above to mark images for
+                                    deletion. This action cannot be undone!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+
+                <!-- Add New Images Field -->
+                <div class="group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-3 flex items-center space-x-2"
+                        for="image"
+                    >
+                        <svg
+                            class="w-4 h-4 text-accent-orange"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                            ></path>
+                        </svg>
+                        <span>Add New Images</span>
+                    </label>
+                    <div class="relative">
+                        <input
+                            type="file"
+                            class="hidden"
+                            id="image"
+                            name="image"
+                            multiple
+                            accept="image/*"
+                        />
+                        <label
+                            for="image"
+                            class="block w-full p-8 border-2 border-dashed border-forest-300 rounded-xl hover:border-accent-orange hover:bg-accent-orange/5 transition-all duration-200 cursor-pointer group-hover:shadow-soft"
+                        >
+                            <div class="text-center">
+                                <svg
+                                    class="mx-auto h-12 w-12 text-forest-400 mb-4"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                                    ></path>
+                                </svg>
+                                <p class="text-forest-600 font-medium mb-2">
+                                    Click to add more images or drag and drop
+                                </p>
+                                <p class="text-sm text-forest-500">
+                                    PNG, JPG, GIF up to 10MB each
+                                </p>
+                                <p class="text-xs text-forest-400 mt-1">
+                                    These will be added to your existing images
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                    <div
+                        class="mt-2 text-sm text-accent-orange opacity-0 group-focus-within:opacity-100 transition-opacity"
+                    >
+                        ✓ Fresh photos can help attract more visitors
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div
+                    class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-forest-200"
+                >
+                    <button
+                        type="submit"
+                        class="flex-1 bg-gradient-to-r from-accent-orange to-accent-amber text-white font-semibold py-4 px-8 rounded-xl hover:from-accent-amber hover:to-accent-orange transform hover:scale-105 hover:shadow-glow transition-all duration-200 flex items-center justify-center space-x-2"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                            ></path>
+                        </svg>
+                        <span>Update Campground</span>
+                    </button>
+
+                    <a
+                        href="/campgrounds/<%= campground._id%>"
+                        class="flex-1 sm:flex-none bg-forest-100 hover:bg-forest-200 text-forest-700 font-semibold py-4 px-8 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 border border-forest-200"
+                    >
+                        <svg
+                            class="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            ></path>
+                        </svg>
+                        <span>Back to Campground</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Update Tips Section -->
+    <div
+        class="mt-12 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 border border-primary-200"
+    >
+        <h3
+            class="text-xl font-semibold text-forest-800 mb-4 flex items-center space-x-2"
+        >
+            <svg
+                class="w-5 h-5 text-primary-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+            </svg>
+            <span>Tips for Updating Your Campground</span>
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div class="flex items-start space-x-3">
+                <div
+                    class="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"
+                ></div>
+                <p class="text-forest-700">
+                    Regularly update your description to reflect seasonal
+                    changes or new amenities
+                </p>
+            </div>
+            <div class="flex items-start space-x-3">
+                <div
+                    class="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"
+                ></div>
+                <p class="text-forest-700">
+                    Add fresh, high-quality photos to keep your listing
+                    attractive and current
+                </p>
+            </div>
+            <div class="flex items-start space-x-3">
+                <div
+                    class="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"
+                ></div>
+                <p class="text-forest-700">
+                    Adjust pricing based on demand, season, or improvements to
+                    your campground
+                </p>
+            </div>
+            <div class="flex items-start space-x-3">
+                <div
+                    class="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"
+                ></div>
+                <p class="text-forest-700">
+                    Remove outdated images and replace them with current ones
+                    showcasing your best features
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom JavaScript for enhanced interactions -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // File input enhancement
+        const fileInput = document.getElementById("image");
+        const fileLabel = fileInput.nextElementSibling;
+
+        fileInput.addEventListener("change", function () {
+            const fileCount = this.files.length;
+            const labelText = fileLabel.querySelector("p");
+
+            if (fileCount > 0) {
+                labelText.textContent = `${fileCount} new image${
+                    fileCount > 1 ? "s" : ""
+                } selected`;
+                fileLabel.classList.add(
+                    "border-accent-orange",
+                    "bg-accent-orange/5"
+                );
+            } else {
+                labelText.textContent =
+                    "Click to add more images or drag and drop";
+                fileLabel.classList.remove(
+                    "border-accent-orange",
+                    "bg-accent-orange/5"
+                );
+            }
+        });
+
+        // Drag and drop functionality
+        fileLabel.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            this.classList.add("border-accent-orange", "bg-accent-orange/5");
+        });
+
+        fileLabel.addEventListener("dragleave", function (e) {
+            e.preventDefault();
+            if (!fileInput.files.length) {
+                this.classList.remove(
+                    "border-accent-orange",
+                    "bg-accent-orange/5"
+                );
+            }
+        });
+
+        fileLabel.addEventListener("drop", function (e) {
+            e.preventDefault();
+            fileInput.files = e.dataTransfer.files;
+            fileInput.dispatchEvent(new Event("change"));
+        });
+
+        // Image deletion confirmation
+        const deleteCheckboxes = document.querySelectorAll(
+            'input[name="deleteImages[]"]'
+        );
+        let deletionCount = 0;
+
+        deleteCheckboxes.forEach((checkbox) => {
+            checkbox.addEventListener("change", function () {
+                const imageContainer = this.closest(".relative");
+
+                if (this.checked) {
+                    deletionCount++;
+                    imageContainer.classList.add(
+                        "opacity-50",
+                        "ring-2",
+                        "ring-red-500"
+                    );
+                    imageContainer
+                        .querySelector("img")
+                        .classList.add("grayscale");
+                } else {
+                    deletionCount--;
+                    imageContainer.classList.remove(
+                        "opacity-50",
+                        "ring-2",
+                        "ring-red-500"
+                    );
+                    imageContainer
+                        .querySelector("img")
+                        .classList.remove("grayscale");
+                }
+
+                // Update deletion notice
+                const noticeElement = document.querySelector(".bg-red-50 p");
+                if (deletionCount > 0) {
+                    noticeElement.innerHTML = `<strong>${deletionCount}</strong> image${
+                        deletionCount > 1 ? "s" : ""
+                    } marked for deletion. This action cannot be undone!`;
+                } else {
+                    noticeElement.innerHTML =
+                        "Check the boxes above to mark images for deletion. This action cannot be undone!";
+                }
+            });
+        });
+
+        // Form validation enhancements
+        const form = document.querySelector(".validated-form");
+        const inputs = form.querySelectorAll(
+            "input[required], textarea[required]"
+        );
+
+        inputs.forEach((input) => {
+            input.addEventListener("blur", function () {
+                if (this.value.trim()) {
+                    this.classList.add("border-accent-orange");
+                    this.classList.remove("border-red-500");
+                } else {
+                    this.classList.add("border-red-500");
+                    this.classList.remove("border-accent-orange");
+                }
+            });
+        });
+
+        // Form submission confirmation
+        form.addEventListener("submit", function (e) {
+            if (deletionCount > 0) {
+                const confirmed = confirm(
+                    `Are you sure you want to delete ${deletionCount} image${
+                        deletionCount > 1 ? "s" : ""
+                    }? This action cannot be undone.`
+                );
+                if (!confirmed) {
+                    e.preventDefault();
+                }
+            }
+        });
+    });
+</script>

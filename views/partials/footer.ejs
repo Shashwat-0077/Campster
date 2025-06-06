@@ -1,0 +1,44 @@
+ <!-- Modern Footer -->
+    <footer class="mt-auto bg-gradient-to-r from-slate-900 to-slate-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <span class="text-2xl">🏕️</span>
+                    <div>
+                        <h3 class="text-lg font-semibold">Campster</h3>
+                        <p class="text-slate-400 text-sm">Your camping adventure starts here</p>
+                    </div>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-slate-400">2024 Campster</p>
+                    <p class="text-slate-500 text-sm mt-1">Built with ❤️ for outdoor enthusiasts</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Auto-hide alerts after 5 seconds
+        document.addEventListener('DOMContentLoaded', () => {
+            const alerts = document.querySelectorAll('[id$="-alert"]');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    if (alert.parentElement) {
+                        alert.style.opacity = '0';
+                        alert.style.transform = 'translateY(-10px)';
+                        setTimeout(() => alert.remove(), 300);
+                    }
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>

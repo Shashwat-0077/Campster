@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Campster Components</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        animation: {
+                            "fade-in": "fadeIn 0.5s ease-in-out",
+                            "slide-down": "slideDown 0.3s ease-out",
+                            "bounce-gentle": "bounceGentle 0.6s ease-out",
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                "0%": {
+                                    opacity: "0",
+                                    transform: "translateY(-10px)",
+                                },
+                                "100%": {
+                                    opacity: "1",
+                                    transform: "translateY(0)",
+                                },
+                            },
+                            slideDown: {
+                                "0%": {
+                                    transform: "translateY(-100%)",
+                                    opacity: "0",
+                                },
+                                "100%": {
+                                    transform: "translateY(0)",
+                                    opacity: "1",
+                                },
+                            },
+                            bounceGentle: {
+                                "0%, 20%, 50%, 80%, 100%": {
+                                    transform: "translateY(0)",
+                                },
+                                "40%": { transform: "translateY(-4px)" },
+                                "60%": { transform: "translateY(-2px)" },
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
+    </head>
+    <body class="bg-gradient-to-br from-slate-50 to-slate-100 min-h-screen">
+        <!-- Modern Navbar -->
+        <nav
+            class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/50 shadow-lg"
+        >
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <!-- Brand -->
+                    <div class="flex items-center">
+                        <a
+                            href="#"
+                            class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent hover:from-emerald-700 hover:to-teal-700 transition-all duration-300"
+                        >
+                            🏕️ Campster
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a
+                            href="/"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200 font-medium"
+                        >
+                            Home
+                        </a>
+                        <a
+                            href="/campgrounds"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200 font-medium"
+                        >
+                            Campgrounds
+                        </a>
+                        <a
+                            href="/campgrounds/new"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200 font-medium"
+                        >
+                            New Campground
+                        </a>
+                    </div>
+
+                    <!-- Auth Links -->
+                    <div class="hidden md:flex items-center space-x-2">
+                        <!-- Show when not logged in -->
+                        <div id="guest-links" class="flex space-x-2">
+                            <a
+                                href="/login"
+                                class="px-4 py-2 text-slate-600 hover:text-slate-800 transition-colors duration-200 font-medium"
+                            >
+                                Login
+                            </a>
+                            <a
+                                href="/register"
+                                class="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                            >
+                                Register
+                            </a>
+                        </div>
+                        <!-- Show when logged in -->
+                        <div id="user-links" class="hidden">
+                            <a
+                                href="/logout"
+                                class="px-4 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 font-medium"
+                            >
+                                Logout
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button
+                            id="mobile-menu-btn"
+                            class="p-2 rounded-lg text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-colors duration-200"
+                        >
+                            <svg
+                                class="w-6 h-6"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div
+                    id="mobile-menu"
+                    class="hidden md:hidden border-t border-slate-200 py-4 animate-slide-down"
+                >
+                    <div class="flex flex-col space-y-2">
+                        <a
+                            href="/"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200"
+                        >
+                            Home
+                        </a>
+                        <a
+                            href="/campgrounds"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200"
+                        >
+                            Campgrounds
+                        </a>
+                        <a
+                            href="/campgrounds/new"
+                            class="px-4 py-2 rounded-lg text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all duration-200"
+                        >
+                            New Campground
+                        </a>
+                        <div class="border-t border-slate-200 mt-2 pt-2">
+                            <a
+                                href="/login"
+                                class="block px-4 py-2 text-slate-600 hover:text-slate-800 transition-colors duration-200"
+                            >
+                                Login
+                            </a>
+                            <a
+                                href="/register"
+                                class="block px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-lg hover:from-emerald-700 hover:to-teal-700 transition-all duration-200 mt-2"
+                            >
+                                Register
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </body>
+</html>

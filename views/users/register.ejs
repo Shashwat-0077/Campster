@@ -1,0 +1,388 @@
+<% layout('layouts/boilerplate')%>
+
+<div
+    class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+>
+    <div class="max-w-md w-full space-y-8">
+        <!-- Header Section -->
+        <div class="text-center">
+            <div
+                class="mx-auto h-16 w-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center shadow-glow mb-6"
+            >
+                <svg
+                    class="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-forest-900 mb-2">
+                Join Campster
+            </h1>
+            <p class="text-forest-600">
+                Create your account and start exploring amazing camping spots
+            </p>
+        </div>
+
+        <!-- Form Card -->
+        <div
+            class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-soft p-8 border border-white/20"
+        >
+            <form
+                action="/register"
+                method="POST"
+                class="validated-form space-y-6"
+                novalidate
+            >
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-2"
+                        for="username"
+                    >
+                        Username
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <input
+                            class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 placeholder-forest-400"
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                        />
+                        <div
+                            class="absolute inset-y-0 right-0 flex items-center pr-3"
+                        >
+                            <svg
+                                class="w-5 h-5 text-forest-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="valid-feedback mt-2 text-sm text-primary-600 font-medium hidden"
+                    >
+                        <div class="flex items-center">
+                            <svg
+                                class="w-4 h-4 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Looks good!
+                        </div>
+                    </div>
+                    <div
+                        class="invalid-feedback mt-2 text-sm text-red-600 font-medium hidden"
+                    >
+                        Please provide a valid username.
+                    </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-2"
+                        for="email"
+                    >
+                        Email Address
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <input
+                            class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 placeholder-forest-400"
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required
+                        />
+                        <div
+                            class="absolute inset-y-0 right-0 flex items-center pr-3"
+                        >
+                            <svg
+                                class="w-5 h-5 text-forest-400"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        class="valid-feedback mt-2 text-sm text-primary-600 font-medium hidden"
+                    >
+                        <div class="flex items-center">
+                            <svg
+                                class="w-4 h-4 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Email looks valid!
+                        </div>
+                    </div>
+                    <div
+                        class="invalid-feedback mt-2 text-sm text-red-600 font-medium hidden"
+                    >
+                        Please provide a valid email address.
+                    </div>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label
+                        class="block text-sm font-semibold text-forest-700 mb-2"
+                        for="password"
+                    >
+                        Password
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <input
+                            class="w-full px-4 py-3 bg-white border-2 border-forest-200 rounded-xl focus:border-primary-500 focus:ring-4 focus:ring-primary-100 outline-none transition-all duration-200 placeholder-forest-400"
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a secure password"
+                            required
+                        />
+                        <button
+                            type="button"
+                            class="absolute inset-y-0 right-0 flex items-center pr-3 text-forest-400 hover:text-forest-600 transition-colors"
+                            onclick="togglePassword()"
+                        >
+                            <svg
+                                id="eye-open"
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                />
+                            </svg>
+                            <svg
+                                id="eye-closed"
+                                class="w-5 h-5 hidden"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <div class="text-xs text-forest-500">
+                            Password should be at least 8 characters long
+                        </div>
+                    </div>
+                    <div
+                        class="valid-feedback mt-2 text-sm text-primary-600 font-medium hidden"
+                    >
+                        <div class="flex items-center">
+                            <svg
+                                class="w-4 h-4 mr-1"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Strong password!
+                        </div>
+                    </div>
+                    <div
+                        class="invalid-feedback mt-2 text-sm text-red-600 font-medium hidden"
+                    >
+                        Password must be at least 8 characters long.
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-glow transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <span class="flex items-center justify-center">
+                            <svg
+                                class="w-5 h-5 mr-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                                />
+                            </svg>
+                            Create Account
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Additional Links -->
+                <div class="text-center pt-4 border-t border-forest-100">
+                    <p class="text-sm text-forest-600">
+                        Already have an account?
+                        <a
+                            href="/login"
+                            class="font-semibold text-primary-600 hover:text-primary-700 transition-colors duration-200"
+                        >
+                            Sign in here
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Terms Notice -->
+        <div class="text-center">
+            <p class="text-xs text-forest-500">
+                By creating an account, you agree to our
+                <a
+                    href="/terms"
+                    class="text-primary-600 hover:text-primary-700 underline"
+                    >Terms of Service</a
+                >
+                and
+                <a
+                    href="/privacy"
+                    class="text-primary-600 hover:text-primary-700 underline"
+                    >Privacy Policy</a
+                >
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeOpen = document.getElementById("eye-open");
+        const eyeClosed = document.getElementById("eye-closed");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeOpen.classList.add("hidden");
+            eyeClosed.classList.remove("hidden");
+        } else {
+            passwordInput.type = "password";
+            eyeOpen.classList.remove("hidden");
+            eyeClosed.classList.add("hidden");
+        }
+    }
+
+    // Enhanced form validation
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".validated-form");
+        const inputs = form.querySelectorAll("input[required]");
+
+        inputs.forEach((input) => {
+            input.addEventListener("input", function () {
+                validateField(this);
+            });
+
+            input.addEventListener("blur", function () {
+                validateField(this);
+            });
+        });
+
+        function validateField(field) {
+            const formGroup = field.closest(".form-group");
+            const validFeedback = formGroup.querySelector(".valid-feedback");
+            const invalidFeedback =
+                formGroup.querySelector(".invalid-feedback");
+
+            if (field.checkValidity()) {
+                field.classList.remove("border-red-300");
+                field.classList.add("border-primary-300");
+                validFeedback.classList.remove("hidden");
+                invalidFeedback.classList.add("hidden");
+            } else {
+                field.classList.remove("border-primary-300");
+                field.classList.add("border-red-300");
+                validFeedback.classList.add("hidden");
+                invalidFeedback.classList.remove("hidden");
+            }
+        }
+
+        // Real-time password strength indicator
+        const passwordInput = document.getElementById("password");
+        passwordInput.addEventListener("input", function () {
+            const password = this.value;
+            const strength = calculatePasswordStrength(password);
+            updatePasswordStrength(strength);
+        });
+
+        function calculatePasswordStrength(password) {
+            let score = 0;
+            if (password.length >= 8) score++;
+            if (/[a-z]/.test(password)) score++;
+            if (/[A-Z]/.test(password)) score++;
+            if (/[0-9]/.test(password)) score++;
+            if (/[^A-Za-z0-9]/.test(password)) score++;
+            return score;
+        }
+
+        function updatePasswordStrength(strength) {
+            // You can add a password strength indicator here if needed
+        }
+    });
+</script>

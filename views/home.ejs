@@ -1,0 +1,280 @@
+<% layout('layouts/boilerplate')%>
+
+<!-- Hero Section -->
+<section class="relative py-20 overflow-hidden">
+    <!-- Background Elements -->
+    <div
+        class="absolute inset-0 bg-gradient-to-br from-primary-50 to-white rounded-3xl mx-4"
+    ></div>
+    <div
+        class="absolute top-10 right-10 w-20 h-20 bg-accent-orange/10 rounded-full animate-bounce-gentle"
+    ></div>
+    <div
+        class="absolute bottom-10 left-10 w-16 h-16 bg-primary-200/30 rounded-full animate-bounce-gentle"
+        style="animation-delay: 0.5s"
+    ></div>
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <!-- Logo/Brand -->
+        <div class="mb-8 animate-fade-in">
+            <div
+                class="inline-flex items-center justify-center w-20 h-20 bg-primary-600 rounded-2xl mb-6 shadow-glow"
+            >
+                <svg
+                    class="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                </svg>
+            </div>
+            <h1 class="text-6xl font-bold text-forest-800 mb-4">
+                <span
+                    class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent"
+                >
+                    CAMPSTER
+                </span>
+            </h1>
+            <p class="text-xl text-forest-600 font-medium">
+                Discover Amazing Camping Destinations
+            </p>
+        </div>
+
+        <!-- Subtitle -->
+        <p
+            class="text-lg text-forest-500 mb-8 max-w-2xl mx-auto leading-relaxed animate-slide-up"
+        >
+            Explore breathtaking campsites, connect with nature, and create
+            unforgettable memories. Your perfect outdoor adventure starts here.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+            class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-slide-up"
+        >
+            <a
+                href="/campgrounds"
+                class="px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl flex items-center"
+            >
+                <svg
+                    class="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    ></path>
+                </svg>
+                Explore Campgrounds
+            </a>
+
+            <a
+                href="/campgrounds/new"
+                class="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-xl hover:bg-primary-50 transform hover:scale-105 transition-all duration-300 font-semibold flex items-center"
+            >
+                <svg
+                    class="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 4v16m8-8H4"
+                    ></path>
+                </svg>
+                Add New Campground
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-forest-800 mb-4">
+                Why Choose Campster?
+            </h2>
+            <p class="text-forest-600 max-w-2xl mx-auto">
+                Discover what makes us the perfect companion for your outdoor
+                adventures
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div
+                class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 animate-fade-in"
+            >
+                <div
+                    class="w-14 h-14 bg-primary-100 rounded-xl flex items-center justify-center mb-6"
+                >
+                    <svg
+                        class="w-7 h-7 text-primary-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        ></path>
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        ></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-forest-800 mb-3">
+                    Discover Hidden Gems
+                </h3>
+                <p class="text-forest-600">
+                    Find unique and secluded camping spots that offer the
+                    perfect escape from the hustle and bustle of city life.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+                class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 animate-fade-in"
+                style="animation-delay: 0.1s"
+            >
+                <div
+                    class="w-14 h-14 bg-accent-orange/10 rounded-xl flex items-center justify-center mb-6"
+                >
+                    <svg
+                        class="w-7 h-7 text-accent-orange"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+                        ></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-forest-800 mb-3">
+                    Community Driven
+                </h3>
+                <p class="text-forest-600">
+                    Join a community of outdoor enthusiasts who share reviews,
+                    tips, and experiences to help you make the best choices.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+                class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:shadow-lg transform hover:-translate-y-2 transition-all duration-300 animate-fade-in"
+                style="animation-delay: 0.2s"
+            >
+                <div
+                    class="w-14 h-14 bg-accent-emerald/10 rounded-xl flex items-center justify-center mb-6"
+                >
+                    <svg
+                        class="w-7 h-7 text-accent-emerald"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        ></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-forest-800 mb-3">
+                    Safe & Reliable
+                </h3>
+                <p class="text-forest-600">
+                    All campgrounds are verified and reviewed to ensure you have
+                    a safe and enjoyable camping experience every time.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 px-4 bg-gradient-to-r from-primary-600 to-primary-700">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white mb-12">
+            Join Thousands of Happy Campers
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="animate-fade-in">
+                <div class="text-4xl font-bold text-white mb-2">1,200+</div>
+                <div class="text-primary-100">Campgrounds Listed</div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.1s">
+                <div class="text-4xl font-bold text-white mb-2">15,000+</div>
+                <div class="text-primary-100">Happy Campers</div>
+            </div>
+            <div class="animate-fade-in" style="animation-delay: 0.2s">
+                <div class="text-4xl font-bold text-white mb-2">4.9/5</div>
+                <div class="text-primary-100">Average Rating</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+        <div
+            class="bg-white rounded-3xl p-12 shadow-soft border border-gray-100"
+        >
+            <h2 class="text-3xl font-bold text-forest-800 mb-4">
+                Ready for Your Next Adventure?
+            </h2>
+            <p class="text-forest-600 mb-8 text-lg">
+                Start exploring amazing campgrounds today and create memories
+                that will last a lifetime.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href="/register"
+                    class="px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transform hover:scale-105 transition-all duration-300 font-semibold shadow-lg hover:shadow-xl"
+                >
+                    Get Started Today
+                </a>
+
+                <a
+                    href="/campgrounds"
+                    class="px-8 py-4 bg-white text-primary-600 border-2 border-primary-600 rounded-xl hover:bg-primary-50 transform hover:scale-105 transition-all duration-300 font-semibold"
+                >
+                    Browse Campgrounds
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
