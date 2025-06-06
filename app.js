@@ -18,13 +18,10 @@ const userRoutes = require("./routes/users");
 const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 
-mongoose.connect(
-    "mongodb+srv://shashwat:shashwat@patanaibarbarbananapadt.ay0lfhl.mongodb.net/?retryWrites=true&w=majority&appName=patanaibarbarbananapadtahai",
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    }
-);
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
